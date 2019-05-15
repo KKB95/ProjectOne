@@ -1,2 +1,2 @@
 # ProjectOne
-Angular and NodeJS web app
+Demo OpenCV Projects
