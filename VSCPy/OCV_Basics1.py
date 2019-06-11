@@ -2,7 +2,7 @@ import numpy as np
 import cv2 as cv
 import pandas as pd
 import pprint as pp
-import OCV_Images_P1
+import OCV_Images_P1 as ocv
 
 # Plotting libraries
 import matplotlib.pyplot as plt
@@ -76,6 +76,7 @@ len(flags)
 flags[1:200]
 
 # Convert image to using YCbCr color space:
+ocv.IndexFinder('COLOR_RGB2YCrCb')
 
 
 # 
