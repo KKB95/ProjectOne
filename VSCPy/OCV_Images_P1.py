@@ -65,7 +65,7 @@ def WriteText(imageName, textOnImage, size):
     cv.imshow('TextImage', newImage)
     cv.waitKey(0)
 
-WriteText('Desert.jpg', textOnImage='The Great Desert', size=4)
+# WriteText('Desert.jpg', textOnImage='The Great Desert', size=4)
 
 # Function to plot img
 
