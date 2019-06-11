@@ -73,10 +73,14 @@ print('Image Width        : ', width)
 
 flags = [i for i in dir(cv) if i.startswith('COLOR_')]
 len(flags)
+index1 = flags.index('COLOR_RGB2YCrCr')
 flags[1:200]
 
 # Convert image to using YCbCr color space:
 ocv.IndexFinder('COLOR_RGB2YCrCb')
+imgActual = cv.imread('VSCPy\ImagesTesting\DesertConvert.jpg', cv.IMREAD_COLOR)
+imgRGBC = cv.cvtColor(imgActual, cv.COLOR_BGR2RGB)
+imgConverted = cv.cvtColor(imgRGBC, cv.COLOR_RGB2YCrCb)
 
 
 # 

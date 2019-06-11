@@ -97,7 +97,10 @@ def PlotDistro(imageName, IS1, IS2, IS3):
 def IndexFinder(indexName):
     totalFlags = [i for i in dir(cv)]
     indexValue = totalFlags.index(indexName)
-    return indexValue
+    if indexValue is null:
+        return 'Index not {0} Present', indexName
+    else:
+        return (indexValue, indexName)
 
 # using the functions:
 
