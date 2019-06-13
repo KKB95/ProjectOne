@@ -96,11 +96,36 @@ def PlotDistro(imageName, IS1, IS2, IS3):
 
 def IndexFinder(indexName):
     totalFlags = [i for i in dir(cv)]
-    indexValue = totalFlags.index(indexName)
-    if indexValue is null:
-        return 'Index not {0} Present', indexName
+    presentStatus = indexName in totalFlags
+    if presentStatus:
+        indexValue = totalFlags.index(indexName)
+        print(indexValue, indexName)
     else:
-        return (indexValue, indexName)
+        print("Wrong index name: ", indexName)
+
+# Function to just display images
+
+
+def JustDispImag(imageName):
+    cv.namedWindow('image', cv.WINDOW_NORMAL)
+    cv.imshow('image', imageName)
+    cv.waitKey(0)
+    cv.destroyAllWindows()
+
+# Function to load image data
+
+
+def LoadImageData(imageName):
+    img = cv.imread(imageName, cv.IMREAD_COLOR)
+    arraySize = img.shape
+    arrayTypeValues = img.dtype
+    arrayDim = img.ndim
+    imgSize = img.size
+    arrayMemory = img.data
+    print("Array Size: {} \n".format(arraySize),
+          "Array Type Values: {} \n".format(arrayTypeValues),
+          "Array Dimension: {} \n".format(arrayDim),
+          "Image Size: {} \n".format(imgSize))
 
 # using the functions:
 

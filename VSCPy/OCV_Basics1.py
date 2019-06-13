@@ -10,10 +10,6 @@ from matplotlib import cm
 from matplotlib import colors
 from mpl_toolkits.mplot3d import Axes3D
 
-import sys
-import os
-sys.path.append('/ProjectG/ProjectOne/VSCPy')
-
 
 #####################
 # Version of OpenCV:
@@ -28,9 +24,10 @@ print(cv.__version__)
 #  1  : Loads a color image. Any transparency of image will be neglected. It is the default flag
 #  0  : Loads image in grayscale mode
 # -1  : Loads image as such including alpha channel
-img = cv.imread("ImagesTesting\Desert.jpg")
+img = cv.imread("ImagesTesting/Desert.jpg", cv.IMREAD_COLOR)
 imgConvert = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 # img is of type ndarray (an n-dimensional array)
+print(img)
 type(img)
 
 # array properties
@@ -50,9 +47,20 @@ id(img)
 # WINDOW_NORMAL   : To resize the image
 # WINDOW_AUTOSIZE :
 cv.namedWindow('image', cv.WINDOW_NORMAL)
-cv.imshow('image', imgConvert)
+cv.imshow('image', imgConverted)
 cv.waitKey(0)
 cv.destroyAllWindows()
+
+###############################################################################################
+
+# Basic image operations using numpy
+img = cv.imread("ImagesTesting/Desert.jpg", cv.IMREAD_COLOR)
+
+ocv.LoadImageData("ImagesTesting/Desert.jpg")
+px = img[20, 20]  # access pixel values of the image
+pxB = img[20, 20, 0]  # access blue pixel value of the image
+pxG = img[20, 20, 1]  # access green pixel value of the image
+pxR = img[20, 20, 2]  # access red pixel value of the image
 
 ###############################################################################################
 
@@ -74,17 +82,16 @@ print('Image Width        : ', width)
 flags = [i for i in dir(cv) if i.startswith('COLOR_')]
 len(flags)
 index1 = flags.index('COLOR_RGB2YCrCr')
+'COLOR_RGB2YCrCb' in flags
 flags[1:200]
 
 # Convert image to using YCbCr color space:
 ocv.IndexFinder('COLOR_RGB2YCrCb')
-imgActual = cv.imread('VSCPy\ImagesTesting\DesertConvert.jpg', cv.IMREAD_COLOR)
+imgActual = cv.imread('ImagesTesting/Desert.jpg', cv.IMREAD_COLOR)
 imgRGBC = cv.cvtColor(imgActual, cv.COLOR_BGR2RGB)
 imgConverted = cv.cvtColor(imgRGBC, cv.COLOR_RGB2YCrCb)
 
-
-# 
-
+ocv.JustDispImag(imgConverted)
 
 ##############################################################################################
 
