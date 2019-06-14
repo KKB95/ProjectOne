@@ -59,7 +59,21 @@ for person in employeeList:
     print(person)
 
 # 3
-employeeList[1][0]
+employeeList[1][3]
+
+# operations on a ksit
+lsit = [1, 2, 23, 43, 56, 78]
+lsit1 = [56, 78]
+
+lsit.append(lsit1)
+lsit.extend(lsit1)
+
+
+# Slicing list elements:
+firstThree_L1 = L1[:3]  # First three elements of L1
+allButLastTwoRemove = L1[:-2]  # List of all elements minus the last two
+allStartingfromTwo = L1[2:]  # List of all elements starting from two
+
 
 # Using Maps & Filters
 
@@ -85,7 +99,11 @@ list(condition)
 filterList = filter(lambda x: x % 2 != 0, list_a)
 list(filterList)
 
-###############################################################################################
+# Tuples in python
+t = ("F1", "F2", "F3")
+t[0] = "G1"  # is an error u cant change value of a tuple once it is assigned
+
+##############################################################################################
 
 
 def func(B=None, C=None, D=None, E=None):
@@ -104,3 +122,21 @@ def funcOne():
     func(B=3, C=4, D=5, E=6)
 
 ###############################################################################################
+
+# Operation on string in python:
+
+str = "AAAA BBBB CCCC DDDD EEEE FFFF GGGG HHHH IIII JJJJ KKKK"
+
+str[::2]
+
+###############################################################################################
+
+# Dictionaries in python:
+
+# Empty dictionary
+places = {}
+en_de = {"red": "rot", "green": "grün", "blue": "blau", "yellow": "gelb"}
+de_fr = {"rot": "rouge", "grün": "vert", "blau": "bleu", "gelb": "jaune"}
+en_de.__len__()
+
+##############################################################################################

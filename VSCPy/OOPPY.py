@@ -1,7 +1,10 @@
 # Object Oriented Programming in Python
 # Basics of OOP in Python:
 
-import numpy as np
 
-class 
+class Bird:
 
+    def __init__(self, feature, species, name):
+        self.feature = feature
+        self.species = species
+        self.name = name

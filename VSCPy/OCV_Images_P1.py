@@ -71,8 +71,8 @@ def WriteText(imageName, textOnImage, size):
 
 
 def PlotDistro(imageName, IS1, IS2, IS3):
-    start = time.time()
-    imgflower = cv.imread(imageName)
+    e1 = cv.getTickCount()
+    imgflower = cv.imread(imageName, cv.IMREAD_COLOR)
     imgflowerC = cv.cvtColor(imgflower, cv.COLOR_BGR2RGB)
     r, g, b = cv.split(imgflowerC)
     fig = plt.figure()
@@ -88,8 +88,9 @@ def PlotDistro(imageName, IS1, IS2, IS3):
     axis.set_ylabel(IS2)
     axis.set_zlabel(IS3)
     plt.show()
-    end = time.time()
-    print(end - start)
+    e2 = cv.getTickCount()
+    time = (e2 - e1) / cv.getTickFrequency()
+    print(e2, e1, time)
 
 # Find index of ColorConverter
 
@@ -130,5 +131,5 @@ def LoadImageData(imageName):
 # using the functions:
 
 # DispImg('Desert.jpg', ConvertTo=0, SaveFlag=True)
-# PlotDistro('ImagesTesting\Desert.jpg', IS1="R", IS2="B", IS3="G")
+# PlotDistro('ImagesTesting/Desert.jpg', IS1="R", IS2="B", IS3="G")
 # IndexFinder('COLOR_RGB2YCrCb')
