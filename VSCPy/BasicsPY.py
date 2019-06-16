@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pprint as pp
 
+import dis
+
 # New Commit
 ###############################################################################################
 
@@ -105,6 +107,8 @@ t[0] = "G1"  # is an error u cant change value of a tuple once it is assigned
 
 ##############################################################################################
 
+# Functions in python:
+
 
 def func(B=None, C=None, D=None, E=None):
     ss = "Borrow"
@@ -120,6 +124,17 @@ def func(B=None, C=None, D=None, E=None):
 
 def funcOne():
     func(B=3, C=4, D=5, E=6)
+
+
+def funcTwo(a):
+    x = 5
+    y = 5 + a
+    return y
+
+
+dis.dis(funcTwo.__code__)
+dir(funcTwo.__code__)
+[ord(b) for b in funcTwo.__code__.co_code]
 
 ###############################################################################################
 
