@@ -128,8 +128,36 @@ def LoadImageData(imageName):
           "Array Dimension: {} \n".format(arrayDim),
           "Image Size: {} \n".format(imgSize))
 
+# Dperecated
+
+
+def LoadImageInfo(img):
+    arraySize = img.shape
+    arrayTypeValues = img.dtype
+    arrayDim = img.ndim
+    imgSize = img.size
+    arrayMemory = img.data
+    print("Array Size: {} \n".format(arraySize),
+          "Array Type Values: {} \n".format(arrayTypeValues),
+          "Array Dimension: {} \n".format(arrayDim),
+          "Image Size: {} \n".format(imgSize))
+
+# Plot histogram of an image
+
+
+def PlotHisto(imgName):
+    img = cv.imread(imgName, cv.IMREAD_COLOR)
+    color = ('b', 'g', 'r')
+    for i, col in enumerate(color):
+        histr = cv.calcHist([img], [i], None, [256], [0, 256])
+        plt.plot(histr, color=col)
+        plt.xlim([0, 256])
+    plt.show()
+
+
 # using the functions:
 
 # DispImg('Desert.jpg', ConvertTo=0, SaveFlag=True)
+# PlotHisto('ImagesTesting/Desert.jpg')
 # PlotDistro('ImagesTesting/Desert.jpg', IS1="R", IS2="B", IS3="G")
 # IndexFinder('COLOR_RGB2YCrCb')

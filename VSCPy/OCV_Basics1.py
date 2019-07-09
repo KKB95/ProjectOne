@@ -91,6 +91,13 @@ imgActual = cv.imread('ImagesTesting/Desert.jpg', cv.IMREAD_COLOR)
 imgRGBC = cv.cvtColor(imgActual, cv.COLOR_BGR2RGB)
 imgConverted = cv.cvtColor(imgRGBC, cv.COLOR_RGB2YCrCb)
 
+# Convert image to using HSV color space:
+ocv.IndexFinder('COLOR_RGB2HSV')
+imgActual = cv.imread('ImagesTesting/Desert.jpg', cv.IMREAD_COLOR)
+imgRGBC = cv.cvtColor(imgActual, cv.COLOR_BGR2RGB)
+imgConverted = cv.cvtColor(imgRGBC, cv.COLOR_RGB2HSV)
+ocv.LoadImageInfo(imgConverted)
+
 ocv.JustDispImag(imgConverted)
 
 ##############################################################################################
@@ -117,5 +124,19 @@ plt.show()
 #############################################################################################
 
 # Image segmenatation
+
+#############################################################################################
+# Image histogram
+
+img = cv.imread('ImagesTesting/Desert.jpg', cv.IMREAD_COLOR)
+color = ('b', 'g', 'r')
+for i, col in enumerate(color):
+    histr = cv.calcHist([img], [i], None, [256], [0, 256])
+    plt.plot(histr, color=col)
+    plt.xlim([0, 256])
+plt.show()
+
+ocv.LoadImageData('ImagesTesting/Desert.jpg')
+ocv.PlotHisto('ImagesTesting/Desert.jpg')
 
 #############################################################################################
